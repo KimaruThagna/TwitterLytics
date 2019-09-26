@@ -2,8 +2,8 @@ import os
 import tweepy as tw
 import pandas as pd
 
-auth = tw.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
+auth = tw.OAuthHandler(os.environ['CONSUMER_KEY'], os.environ['CONSUMER_SECRET'])
+auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_TOKEN_SECRET"])
 api = tw.API(auth, wait_on_rate_limit=True)
 
 # Post a tweet from Python
