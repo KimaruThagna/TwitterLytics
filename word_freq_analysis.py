@@ -58,3 +58,9 @@ stop_words = set(stopwords.words('english'))
 
 # View a few words from the set
 print(f'View the first 10 stopwords {list(stop_words)[0:10]}')
+
+# Remove stop words from each tweet list of words
+tweets_nsw = [[word for word in tweet_words if not word in stop_words]
+              for tweet_words in words_in_tweet]
+
+print(f' tweet sample without stop words{tweets_nsw[0]}')
