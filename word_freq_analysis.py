@@ -64,3 +64,21 @@ tweets_nsw = [[word for word in tweet_words if not word in stop_words]
               for tweet_words in words_in_tweet]
 
 print(f' tweet sample without stop words{tweets_nsw[0]}')
+
+all_words_nsw = list(itertools.chain(*tweets_nsw))
+
+counts_nsw = collections.Counter(all_words_nsw)
+
+# create a dataframe and plot most common words and their frequency
+clean_tweets_nsw = pd.DataFrame(counts_nsw.most_common(15),
+                             columns=['words', 'count'])
+
+fig, ax = plt.subplots(figsize=(8, 8))
+
+# Plot horizontal bar graph
+clean_tweets_nsw.sort_values(by='count').plot.barh(x='words',
+                      y='count',
+                      ax=ax,
+                      color="purple")
+ax.set_title("Common Words Found in Tweets (Without Stop Words)")
+plt.show()
