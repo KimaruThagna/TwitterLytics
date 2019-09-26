@@ -82,3 +82,35 @@ clean_tweets_nsw.sort_values(by='count').plot.barh(x='words',
                       color="purple")
 ax.set_title("Common Words Found in Tweets (Without Stop Words)")
 plt.show()
+
+'''
+Removing collection words(words used in the twitter search query)
+It is important to remove these words to avoid skewing of the word frequency analysis since the words will be 
+available in every tweet
+'''
+
+collection_words = ['climatechange', 'climate', 'change']
+tweets_nsw_nc = [[w for w in word if not w in collection_words]
+                 for word in tweets_nsw]
+
+# Flatten list of words in clean tweets
+all_words_nsw_nc = list(itertools.chain(*tweets_nsw_nc))
+
+# Create counter of words in clean tweets
+counts_nsw_nc = collections.Counter(all_words_nsw_nc)
+
+print(f' 15 most common words without collection words{counts_nsw_nc.most_common(15)}')
+# plot the frequency distribution after removing the collection words
+clean_tweets_ncw = pd.DataFrame(counts_nsw_nc.most_common(15),
+                             columns=['words', 'count'])
+fig, ax = plt.subplots(figsize=(8, 8))
+
+# Plot horizontal bar graph
+clean_tweets_ncw.sort_values(by='count').plot.barh(x='words',
+                      y='count',
+                      ax=ax,
+                      color="purple")
+
+ax.set_title("Common Words Found in Tweets (Without Stop or Collection Words)")
+
+plt.show()
