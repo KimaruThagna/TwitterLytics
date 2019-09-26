@@ -34,6 +34,10 @@ for tweet in tweets:
 
 # who is tweeting about a certain topic and from where
 users_locs = [[tweet.user.screen_name, tweet.user.location] for tweet in tweets]
+for item in users_locs:
+    print(item)
 # create a dataframe
 tweet_text = pd.DataFrame(data=users_locs,
                     columns=['user', "location"])
+
+print(f'Twitter user and location in  a pandas DF {tweet_text}')
