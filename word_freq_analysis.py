@@ -7,6 +7,7 @@ import collections
 import tweepy as tw
 import nltk
 from nltk.corpus import stopwords
+from nltk import bigrams
 import re
 import networkx
 from extract_tweets import api
