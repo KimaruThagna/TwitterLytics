@@ -9,7 +9,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk import bigrams
 import re
-import networkx
+import networkx as nx
 from extract_tweets import api
 import warnings
 warnings.filterwarnings("ignore")
