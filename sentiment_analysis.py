@@ -17,3 +17,8 @@ sentiment_df.hist(bins=[-1, -0.75, -0.5, -0.25, 0.25, 0.5, 0.75, 1],
 
 plt.title("Sentiments from Tweets on Climate Change")
 plt.show()
+
+# using seaborn approach
+sns.distplot(sentiment_df.polarity.values, bins=8, color='blue')
+plt.title("Seaborn Distribution Plot")
+plt.show()
