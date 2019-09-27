@@ -10,6 +10,7 @@ from nltk.corpus import stopwords
 from nltk import bigrams
 import re
 import networkx as nx
+from textblob import TextBlob
 from extract_tweets import api
 import warnings
 warnings.filterwarnings("ignore")

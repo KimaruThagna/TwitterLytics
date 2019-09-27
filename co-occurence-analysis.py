@@ -23,6 +23,7 @@ bigram_df = pd.DataFrame(bigram_counts.most_common(20),
 # Create dictionary of bigrams and their counts
 bigram_dict = bigram_df.set_index('bigram').T.to_dict('records')
 
+print(f'Bi-gram dictionary from dataframe {bigram_dict}')
 # Create network plot
 G = nx.Graph()
 
