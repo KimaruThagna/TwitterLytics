@@ -114,3 +114,5 @@ clean_tweets_ncw.sort_values(by='count').plot.barh(x='words',
 ax.set_title("Common Words Found in Tweets (Without Stop or Collection Words)")
 
 plt.show()
+
+#https://www.earthdatascience.org/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
